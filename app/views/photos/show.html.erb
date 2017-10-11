@@ -1,11 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div class="container text-center">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Caption:</strong>
-  <%= @photo.caption %>
-</p>
+  <div class="row">
+    <div class="col">
+      <%= image_tag @photo.image_url, class: "image-full-size" %>
+    </div>
+  </div>
 
-  <%= image_tag @photo.image_url %>
+  <div class="row pt-3 pb-5">
+    <div class="col font-weight-bold image-caption">
+      <%= @photo.caption %>
+    </div>
+  </div>
 
-<%= link_to 'Edit', edit_photo_path(@photo) %> |
-<%= link_to 'Back', photos_path %>
+  <div class="row">
+    <div class="col pb-5">
+      <%= link_to 'Edit', edit_photo_path(@photo) %> |
+      <%= link_to 'Back', photos_path %>
+    </div>
+  </div>
+
+</div>
