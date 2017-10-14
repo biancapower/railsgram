@@ -21,6 +21,23 @@
       </div>
       <div class="row">
         <div class="col">
+
+          <%= button_to like_photo_path(photo), method: "put", class: "btn btn-success" do %>
+
+            <span><%= photo.get_likes.size %></span> Likes
+
+          <% end %>
+
+          <%= button_to dislike_photo_path(photo), method: "put", class: "btn btn-danger" do %>
+
+            <span><%= photo.get_dislikes.size %></span> Dislikes
+
+          <% end %>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
           <%= link_to 'View', photo %>
           <% if photo.user == current_user %>
             <%= link_to 'Edit', edit_photo_path(photo) %>

@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  before_action :set_photo, only: [:show, :edit, :update, :destroy]
+  before_action :set_photo, only: [:show, :edit, :update, :destroy, :like, :dislike]
 
   # GET /photos
   # GET /photos.json
@@ -64,6 +64,26 @@ class PhotosController < ApplicationController
         format.json { head :no_content }
       end
     end
+  end
+
+  def like
+    if current_user.liked?(@photo)
+      @photo.unvote_by current_user
+    else
+      @photo.liked_by current_user
+    end
+
+    redirect_to photos_path
+  end
+
+  def dislike
+    if current_user.disliked?(@photo)
+      @photo.unvote_by current_user
+    else
+      @photo.disliked_by current_user
+    end
+
+    redirect_to photos_path
   end
 
   private
