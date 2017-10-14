@@ -15,6 +15,8 @@ gem 'bootstrap', '~> 4.0.0.beta'
 #
 gem 'jquery-rails'
 #
+gem 'acts_as_votable', '~> 0.10.0'
+#
 gem 'shrine'
 gem 'image_processing'
 gem 'mini_magick'

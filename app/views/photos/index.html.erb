@@ -1,17 +1,32 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
 
-  <h1>Photos</h1>
+  <div class="row">
+    <div class="col pb-4 text-center">
+      <h1>Photos</h1>
+    </div>
+  </div>
 
   <% @photos.each do |photo| %>
-    <%= image_tag photo.image_url, width: 100 %>
-    <br>
-    <%= photo.caption %>
-    <br>
-    <%= link_to 'View', photo %>
-    <%= link_to 'Edit', edit_photo_path(photo) %>
-    <%= link_to 'Delete', photo, method: :delete, data: { confirm: 'Are you sure?' } %>
-    <br>
+    <div class="container text-center mt-3 pb-3 photo-container rounded">
+      <div class="row">
+        <div class="col-12">
+          <%= image_tag photo.image_url, class: "image-full-size" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col image-caption">
+          <%= photo.caption %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <%= link_to 'View', photo %>
+          <%= link_to 'Edit', edit_photo_path(photo) %>
+          <%= link_to 'Delete', photo, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      </div>
+    </div>
   <% end %>
 
   <br>

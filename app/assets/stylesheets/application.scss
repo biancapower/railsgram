@@ -1,7 +1,7 @@
 @import "bootstrap";
 
 body {
-  // background-color: blue;
+  background-color: antiquewhite;
 }
 
 .image-caption {
@@ -9,5 +9,12 @@ body {
 }
 
 .image-full-size {
+  max-width: 90%;
+}
+
+.photo-container {
+  padding-top: 5%;
+  padding-bottom: 5%;
   max-width: 80%;
+  background-color: white;
 }
