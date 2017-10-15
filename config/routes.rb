@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :followers
   resources :profiles
   resources :photos
   devise_for :users
@@ -9,6 +10,14 @@ Rails.application.routes.draw do
       put 'dislike', to: 'photos#dislike'
     end
   end
+
+  resources :users do
+    member do
+      put 'follow', to: 'users#follow'
+    end
+  end
+
+  get 'profile', to: 'profiles#current'
 
   root to: 'pages#homepage'
   # get 'users/sign_out', to: 'pages#homepage'

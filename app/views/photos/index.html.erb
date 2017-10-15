@@ -15,6 +15,20 @@
         </div>
       </div>
       <div class="row">
+        <div class="col">
+          <%= photo.user.email %>
+
+          <%= button_to follow_user_path(photo.user), method: "put", class: "btn btn-info" do %>
+
+            <% if current_user.following?(photo.user) %>
+              Un
+            <% end %>
+              follow
+          <% end %>
+
+        </div>
+      </div>
+      <div class="row">
         <div class="col image-caption">
           <%= photo.caption %>
         </div>

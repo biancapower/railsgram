@@ -4,7 +4,16 @@ class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.json
   def index
-    @photos = Photo.all
+
+    if !params.has_key?(:following)
+      @photos = Photo.all
+    else
+      @photos = []
+      current_user.following.each do |followee|
+        @photos << followee.photos
+      end
+      @photos.flatten!
+    end
   end
 
   # GET /photos/1
@@ -94,6 +103,6 @@ class PhotosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
-      params.require(:photo).permit(:caption, :image)
+      params.require(:photo).permit(:caption, :image, :following)
     end
 end

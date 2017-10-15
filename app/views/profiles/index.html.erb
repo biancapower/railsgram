@@ -17,7 +17,7 @@
     <% @profiles.each do |profile| %>
       <tr>
         <td><%= profile.name %></td>
-        <td><%= profile.username %></td>
+        <td><%= profile.user.id %></td>
         <td><%= profile.bio %></td>
         <td><%= profile.age %></td>
         <td><%= link_to 'Show', profile %></td>
