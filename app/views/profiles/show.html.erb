@@ -1,35 +1,44 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Avatar:</strong>
+  <div class="row">
+    <div class="col-6 text-center">
+      <div class="row">
+        <div class="col">
+          <% if @profile.avatar_url != nil %>
+            <%= image_tag @profile.avatar_url, class: "image-small image-circle" %>
+          <% else %>
+            <!-- blank -->
+          <% end %>
+        </div>
+      </div>
 
-  <% if @profile.avatar_url != nil %>
-    <%= image_tag @profile.avatar_url, class: "image-small" %>
-  <% else %>
-    Nothing to see here...
-  <% end %>
-</p>
+      <div class="row pt-5 pb-3">
+        <div class="col font-weight-bold">
+          <%= @profile.username %>
+        </div>
+      </div>
 
-<p>
-  <strong>Username:</strong>
-  <%= @profile.username %>
-</p>
+      <div class="row">
+        <div class="col">
+          <%= @profile.name + ", age " + @profile.age %>
+        </div>
+      </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @profile.name %>
-</p>
+    </div>
+    <div class="col-6">
+      <%= @profile.bio %>
+    </div>
+  </div>
 
-<p>
-  <strong>Bio:</strong>
-  <%= @profile.bio %>
-</p>
+  <div class="row pt-5">
+    <div class="col text-center">
+      <% if @profile == current_user.profile %>
+        <%= link_to 'Edit Profile', edit_profile_path(@profile) %>
+      <% end %>
+    </div>
+  </div>
 
-<p>
-  <strong>Age:</strong>
-  <%= @profile.age %>
-</p>
 
-<% if @profile == current_user.profile %>
-  <%= link_to 'Edit Profile', edit_profile_path(@profile) %>
-<% end %>
+
+</div>
