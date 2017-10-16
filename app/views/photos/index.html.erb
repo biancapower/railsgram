@@ -31,7 +31,11 @@
 
           <div class="row pt-5 pb-5">
             <div class="col d-flex justify-content-end font-weight-bold">
-              <%= photo.user.email %>
+
+              <%= link_to profile_path(photo.user) do %>
+                <%= photo.user.email %>
+              <% end %>
+
             </div>
             <div class="col d-flex justify-content-start">
               <%= button_to follow_user_path(photo.user), method: "put", class: "btn btn-info" do %>
