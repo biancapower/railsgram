@@ -2,7 +2,12 @@
 
 <p>
   <strong>Avatar:</strong>
-  <%= image_tag @profile.avatar_url, class: "image-small" %>
+
+  <% if @profile.avatar_url != nil %>
+    <%= image_tag @profile.avatar_url, class: "image-small" %>
+  <% else %>
+    Nothing to see here...
+  <% end %>
 </p>
 
 <p>
