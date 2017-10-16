@@ -13,7 +13,11 @@ body {
 }
 
 .image-small {
-  max-width: 10%;
+  width: 30%;
+}
+
+.image-circle {
+  border-radius: 50%;
 }
 
 .photo-container {
