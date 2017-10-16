@@ -20,8 +20,6 @@ Rails.application.routes.draw do
 
   get 'profile', to: 'profiles#current'
 
-  # get 'users/all', to: 'profiles'
-
   root to: 'pages#homepage'
   # get 'users/sign_out', to: 'pages#homepage'
 end

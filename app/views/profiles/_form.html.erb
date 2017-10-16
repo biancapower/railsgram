@@ -12,13 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :profile_name %>
+    <%= form.label :username %>
+    <%= form.text_field :username, id: :profile_username %>
   </div>
 
   <div class="field">
-    <%= form.label :username %>
-    <%= form.text_field :username, id: :profile_username %>
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :profile_name %>
   </div>
 
   <div class="field">
@@ -29,6 +29,12 @@
   <div class="field">
     <%= form.label :age %>
     <%= form.text_field :age, id: :profile_age %>
+  </div>
+
+  <div class="field">
+    <%= form.label :avatar %>
+    <!-- <%= form.hidden_field :avatar, value: profile.cached_avatar_data %> -->
+    <%= form.file_field :avatar, id: :avatar_data %>
   </div>
 
   <div class="actions">

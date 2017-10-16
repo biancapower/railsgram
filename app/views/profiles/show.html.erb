@@ -1,13 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @profile.name %>
+  <strong>Avatar:</strong>
+  <%= image_tag @profile.avatar_url, class: "image-small" %>
 </p>
 
 <p>
   <strong>Username:</strong>
   <%= @profile.username %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @profile.name %>
 </p>
 
 <p>
