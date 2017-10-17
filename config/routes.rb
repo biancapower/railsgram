@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   resources :followers
   resources :profiles
   resources :photos
-  resources :comments
   devise_for :users
 
   resources :photos do
@@ -10,6 +9,9 @@ Rails.application.routes.draw do
       put 'like', to: 'photos#like'
       put 'dislike', to: 'photos#dislike'
     end
+
+    resources :comments
+
   end
 
   resources :users do

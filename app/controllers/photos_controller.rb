@@ -101,7 +101,7 @@ class PhotosController < ApplicationController
       @photo = Photo.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Never trust parameters from the scary internet, only allow the white list through. PHOTOS
     def photo_params
       params.require(:photo).permit(:caption, :image, :following)
     end
