@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :followers
   resources :profiles
   resources :photos
+  resources :comments
   devise_for :users
 
   resources :photos do
