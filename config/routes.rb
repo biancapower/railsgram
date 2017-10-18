@@ -1,17 +1,15 @@
 Rails.application.routes.draw do
   resources :followers
   resources :profiles
-  resources :photos
+
   devise_for :users
 
   resources :photos do
+    resources :comments
     member do
       put 'like', to: 'photos#like'
       put 'dislike', to: 'photos#dislike'
     end
-
-    resources :comments
-
   end
 
   resources :users do

@@ -1,0 +1,12 @@
+<%# puts "-----#{locals[:photo].inspect}" %>
+<%# puts "-----#{locals[:comment].inspect}" %>
+
+<%= form_with(model: [locals[:photo], locals[:comment]], local: true, url: photo_comments_path(locals[:photo].id)) do |form| %>
+  <div class="field">
+    <%= form.label :message %><br>
+    <%= form.text_area :message %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
