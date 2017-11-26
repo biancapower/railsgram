@@ -1,18 +1,36 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy, :like, :dislike]
 
-  # GET /photos
-  # GET /photos.json
-  def index
+# Photo.where(user: user.followers)
 
-    if !params.has_key?(:following)
-      @photos = Photo.all
-    else
+
+
+  def index
+    # if the url is /photos?following
+    if params.has_key?(:following)
+
+      # @user = User.find(params[:id])
+
+      # @photos = Photo.where(user: @user.followers)
+
+
+
+# =begin
+      # create an array to hold the photos we want to show (i.e those from users the current user is following)
       @photos = []
+
+      # for each user that the current user is following, add the array of their photos to "@photos"
       current_user.following.each do |followee|
         @photos << followee.photos
       end
+      # flatten "@photos" to be a one-dimensional array of all photos from all users followed by current user
       @photos.flatten!
+# =end
+
+    # if the url is /photos, show all photos from all users
+    else
+      @photos = Photo.all
+      @comment = Comment.new
     end
   end
 
@@ -101,7 +119,7 @@ class PhotosController < ApplicationController
       @photo = Photo.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Never trust parameters from the scary internet, only allow the white list through. PHOTOS
     def photo_params
       params.require(:photo).permit(:caption, :image, :following)
     end

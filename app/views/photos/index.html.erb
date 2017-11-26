@@ -50,10 +50,6 @@
             </div>
           </div>
 
-
-
-
-
         </div>
       </div>
 
@@ -77,6 +73,16 @@
 
         </div>
       </div>
+
+      <div class="row">
+        <div class="col text-center">
+
+          <!-- form to add comment -->
+          <%= render 'comments/comments', locals: { :comment => @comment, :photo => photo } %>
+
+        </div>
+      </div>
+
       <div class="row">
         <div class="col">
           <%#= link_to 'View', photo %>
